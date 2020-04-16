@@ -1,0 +1,29 @@
+const Example = require('../model/example');
+const list = async (ctx) => {
+  const data = await Example.findAll();
+  ctx.body = {
+      data,
+      code: 1000,
+      desc: 'success'
+  }
+};
+const create = async (ctx) => {
+    try {
+        await Example.create(ctx.query);
+        ctx.body = {
+            code: 1000,
+            data: 'create success'
+        }
+    }
+    catch (err) {
+        const msg = err.errors[0];
+        ctx.body ={
+            code: 200,
+            data: msg.value + msg.message
+        }
+    }
+};
+module.exports = {
+    list,
+    create
+};
