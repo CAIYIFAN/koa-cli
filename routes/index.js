@@ -4,6 +4,7 @@ const Star = require('../controllers/star')
 const Admin = require('../controllers/admin')
 const Category = require('../controllers/category')
 const Article = require('../controllers/article')
+const toDoList = require('../controllers/toDoList')
 
 router.get('/', function *(next) {
   yield this.render('index', {
@@ -49,5 +50,11 @@ router.get('/article/detail', Article.detail)
 router.post('/article/create', Article.create)
 router.post('/article/update', Article.update)
 router.post('/article/destroy', Article.destroy)
+
+//toDoList
+router.get('/toDoList/list/all', toDoList.listAll)
+
+router.post('/toDoList/create', toDoList.create)
+router.post('/toDoList/destroy', toDoList.destroy)
 
 module.exports = router
