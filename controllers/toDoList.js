@@ -39,8 +39,18 @@ const destroy = async ctx => {
         desc: '删除成功'
     }
 };
+const update = async ctx => {
+    const {key, todoState} = ctx.request.body;
+    const data = await toDoList.update({todoState},{where: {key}});
+    ctx.body = {
+        code: 1000,
+        data,
+        desc: '修改成功'
+    }
+};
 module.exports = {
     create,
     listAll,
-    destroy
+    destroy,
+    update
 };

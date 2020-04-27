@@ -13,6 +13,9 @@ const toDoList = sequelize.define('toDoList',{
     label: {
         type: Sequelize.STRING,
     },
+    todoState: {
+        type: Sequelize.STRING,
+    },
     des: {
         type: Sequelize.STRING,
     },

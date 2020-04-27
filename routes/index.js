@@ -56,5 +56,6 @@ router.get('/toDoList/list/all', toDoList.listAll)
 
 router.post('/toDoList/create', toDoList.create)
 router.post('/toDoList/destroy', toDoList.destroy)
+router.post('/toDoList/update', toDoList.update)
 
 module.exports = router
